@@ -19,6 +19,15 @@ defmodule LaranjaBankWeb.ErrorJSON do
     %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
   end
 
+  def error(%{status: :not_found}) do
+    %{
+      errors: %{
+        status: :not_found,
+        message: "User not Found"
+      }
+    }
+  end
+
   def error(%{changeset: changeset}) do
     %{
       erros:
