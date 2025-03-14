@@ -7,9 +7,9 @@ defmodule LaranjaBankWeb.UsersJSON do
     }
   end
 
-  def get(%{user: user}), do: %{data: data(user)}
-
-
+  def get(%{user: user}), do: %{data: user}
+  def update(%{user: user}), do: %{message: "User updated", data: user}
+  def delete(%{user: user}), do: %{message: "User deleted", data: user}
   defp data(%User{} = user) do
     %{
       id: user.id,
